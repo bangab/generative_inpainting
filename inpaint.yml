@@ -50,8 +50,8 @@ data_flist:
     'data/imagenet/validation_static_view.flist',
   ]
   myown: [
-     './data_flist/train_shuffled.flist',
-     './data_flist/validation_shuffled.flist'
+     '../input/shuffled/train_shuffled.flist',
+     '../input/shuffled/validation_shuffled.flist'
   ]
 static_view_size: 30
 img_shapes: [256, 256, 3]
