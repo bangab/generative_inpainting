@@ -8,11 +8,11 @@ gpu_type: 'nvidia-tesla-p100'
 
 # parameters
 name: places2_gated_conv_v100  # any name
-model_restore: 'MODEL_RESTORE: 20180115220926508503_places2_model' # logs/places2_gated_conv
+model_restore: '' # logs/places2_gated_conv
 dataset: 'myown'  # 'tmnist', 'dtd', 'places2', 'celeba', 'imagenet', 'cityscapes'
 random_crop: False  # Set to false when dataset is 'celebahq', meaning only resize the images to img_shapes, instead of crop img_shapes from a larger raw image. This is useful when you train on images with different resolutions like places2. In these cases, please set random_crop to true.
-val: False  # true if you want to view validation results in tensorboard
-log_dir: '/content/drive/MyDrive/logs'
+val: True  # true if you want to view validation results in tensorboard
+log_dir: /content/drive/MyDrive/logs
 
 gan: 'sngan'
 gan_loss_alpha: 1
@@ -59,7 +59,7 @@ height: 128
 width: 128
 max_delta_height: 32
 max_delta_width: 32
-batch_size: 1
+batch_size: 4
 vertical_margin: 0
 horizontal_margin: 0
 
