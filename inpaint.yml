@@ -1,18 +1,8 @@
-# =========================== Basic Settings ===========================
-# machine info
-num_gpus_per_job: 1  # number of gpus each job need
-num_cpus_per_job: 4  # number of gpus each job need
-num_hosts_per_job: 1
-memory_per_job: 32  # number of gpus each job need
-gpu_type: 'nvidia-tesla-t4'
-
-# parameters
-name: places2_gated_conv_v100  # any name
-model_restore: '' # logs/places2_gated_conv
 dataset: 'myown'  # 'tmnist', 'dtd', 'places2', 'celeba', 'imagenet', 'cityscapes'
 random_crop: False  # Set to false when dataset is 'celebahq', meaning only resize the images to img_shapes, instead of crop img_shapes from a larger raw image. This is useful when you train on images with different resolutions like places2. In these cases, please set random_crop to true.
 val: True  # true if you want to view validation results in tensorboard
 log_dir: ./logs
+MODEL_RESTORE: ''
 
 gan: 'sngan'
 gan_loss_alpha: 1
@@ -22,6 +12,8 @@ random_seed: False
 padding: 'SAME'
 
 # training
+NUM_GPUS: 1
+GPU_ID: -1  # -1 indicate select any available one, otherwise select gpu ID, e.g. [0,1,3]
 train_spe: 4000
 max_iters: 100000000
 viz_max_out: 10
@@ -50,8 +42,8 @@ data_flist:
     'data/imagenet/validation_static_view.flist',
   ]
   myown: [
-     'C:/Users/student/Desktop/data_flist/train_shuffled.flist',
-     'C:/Users/student/Desktop/data_flist/validation_shuffled.flist'
+     './data_flist/train_shuffled.flist',
+     './data_flist/validation_shuffled.flist'
   ]
 static_view_size: 30
 img_shapes: [256, 256, 3]
